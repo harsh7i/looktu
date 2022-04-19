@@ -82,10 +82,5 @@ cd usr/etc
 MOTD='motd*'
 
 if [ -f "$MOTD" ]; then
-   echo "Do you want to remove - Welcome to Termux (y/n): "
-   read MOTD_PARAM
-   TRUE='y'
-   if [ "$MOTD_PARAM"=="$TRUE" ]; then
-      rm motd*
-   fi
+   echo "Exist"
 fi
