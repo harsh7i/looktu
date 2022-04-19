@@ -75,9 +75,8 @@ echo "Do you want to remove - Welcome to Termux (y/n): "
 read MOTD_PARAM
 TRUE='y'
 
-if [ $MOTD_PARAM==$TRUE ]; then
+if [ "$MOTD_PARAM"=="$TRUE" ]; then
    echo "Yes"
 else
    echo "No"
 fi
-echo "working"
