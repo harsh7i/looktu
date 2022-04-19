@@ -72,7 +72,7 @@ cd ..
 # In home folder
 
 echo "Do you want to remove - Welcome to Termux (y/n): "
-read motd-remove-permission
+read REMOVE_PER
 TRUE='y'
 
 if [ $motd-remove-permission == $True ]
