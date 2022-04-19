@@ -82,5 +82,7 @@ cd usr/etc
 MOTD='motd*'
 
 if [ -f "$MOTD" ]; then
-   echo "Exist"
+    echo "Theme Already Downloaded, It's Time to Install !"
+else
+    echo "Downloading Termux Theme !"
 fi
