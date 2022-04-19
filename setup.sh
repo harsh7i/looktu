@@ -79,8 +79,11 @@ cd usr/etc
 
 # In usr/etc folder
 
-if [ -f "motd*" ]; then
-    echo "Do you want to remove - Welcome to Termux (y/n): "
+if [ -f "motd" ]; then
+    rm motd*
+    echo "Removing....."
+    echo "Removed"
 else
     echo "Well Done !"
 fi
+pwd
