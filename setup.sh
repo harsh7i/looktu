@@ -86,4 +86,7 @@ if [ -f "motd" ]; then
 else
     echo "Well Done !"
 fi
-pwd
+
+cd
+
+# In home folder
