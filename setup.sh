@@ -91,3 +91,22 @@ fi
 cd
 
 # In home folder
+
+cd termux-setup
+
+# In termux-setup folder
+
+if [ -f "zshrc" ]; then
+    echo "Install Stylish STRANGE Text ? (y/n): "
+    read PARAM_PYTHON
+    TRUE='y'
+    if [ "$PARAM_PYTHON"=="$TRUE" ]; then
+        pkg install python3
+        pip install lolcat
+        mv -f zshrc /data/data/com.termux/files/usr/etc
+    else 
+        echo "No Problem !"
+    fi
+else 
+    echo "STRANGE already used !"
+fi
