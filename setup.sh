@@ -66,3 +66,36 @@ else
     curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/theme
     echo " Successfully Theme Installed !"
 fi
+
+cd ..
+
+# In home folder
+
+echo "Do you want to remove - Welcome to Termux (y/n): "
+read motd-remove-permission
+
+if [ $motd-remove-permission == 'y' ]; then
+    echo "Removing...Termux Motd Files"
+    cd ..
+
+    # In data/files folder
+    
+    cd usr/etc
+
+    # In usr/etc folder
+    # variables
+    MOTD='motd'
+    MOTD-PLAYSTORE='motd-playstore'
+    MOTD-DPKG='motd.dpkg-dist'
+    if[ -f "$MOTD" ]; then
+        rm motd
+    fi
+    if[ -f "$MOTD-PLAYSTORE" ]; then
+        rm motd-playstore
+    fi
+    if[ -f "$MOTD-DPKG" ]; then
+        rm motd.dpkg-dlist
+    fi
+else
+    echo "Files not Found"
+fi
