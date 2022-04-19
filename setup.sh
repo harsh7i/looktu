@@ -79,10 +79,8 @@ cd usr/etc
 
 # In usr/etc folder
 
-MOTD='motd*'
-
-if [ -f "$MOTD" ]; then
-    echo "Theme Already Downloaded, It's Time to Install !"
+if [ -f "motd*" ]; then
+    echo "Do you want to remove - Welcome to Termux (y/n): "
 else
-    echo "Downloading Termux Theme !"
+    echo "Well Done !"
 fi
