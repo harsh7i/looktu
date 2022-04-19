@@ -24,8 +24,6 @@ cd termux-setup
 
 # In termux-setup folder
 
-apt install curl
-
 # Changing Termux Repository
 
 REPO='repo'
@@ -33,7 +31,10 @@ if [ -f "$REPO" ]; then
     echo "Repository Already Changed !"
 else
     echo "Change Your Termux Repository !"
-    termux-change-repo
+    pkg install curl
+    apt update
+    apt upgrade
+    pkg update
     curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/repo
 fi
 
