@@ -71,36 +71,20 @@ cd ..
 
 # In home folder
 
-echo "Do you want to remove - Welcome to Termux (y/n): "
-# Variables
+cd ..
 
-read MOTD_PARAM
-TRUE='y'
-MOTD='motd'
-MOTD_PLAYSTORE='motd-playstore'
-MOTD_DPKG='motd.dpkg-dist'
+# In data/files folder
 
-if [ "$MOTD_PARAM"=="$TRUE" ]; then
-   cd ..
-   
-   # In data/files folder
+cd usr/etc
 
-   cd usr/etc
-  
-   # In usr/etc folder
+# In usr/etc folder
 
-   if [ -f "$MOTD" ]; then
-      rm motd
-   fi
+MOTD='motd*'
 
-   if [ -f "$MOTD_PLAYSTORE" ]; then
-      rm motd-playstore
-   fi
-
-   if [ -f "$MOTD_DPKG" ]; then
-      rm motd.dpkg-dist
-   fi
-   echo "Successfully Removed !"
-else
-   echo "Don't Mind !"
+if [ -f "$MOTD" ]; then
+   echo "Do you want to remove - Welcome to Termux (y/n): "
+   read MOTD_PARAM
+   TRUE='y'
+   if [ "$MOTD_PARAM"=="$TRUE"]; then
+      rm motd*
 fi
