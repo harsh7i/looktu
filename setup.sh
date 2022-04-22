@@ -116,7 +116,7 @@ cd termux-setup
 #In termux-setup folder
 
 if [ -f "prompt" ]; then
-    echo "Your Prompt is Already Satisfied !
+    echo "Your Prompt is Already Satisfied !"
 else
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
     echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
