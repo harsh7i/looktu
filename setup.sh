@@ -1,8 +1,8 @@
 
 echo "
-╦  ╔═╗╔╦╗╔═╗  ╔╗ ╔═╗╔═╗╦╔╗╔
-║  ║╣  ║ ╚═╗  ╠╩╗║╣ ║ ╦║║║║
-╩═╝╚═╝ ╩ ╚═╝  ╚═╝╚═╝╚═╝╩╝╚╝
+╦ ╦  ╔═╗  ╦═╗  ╔═╗  ╦ ╦
+╠═╣  ╠═╣  ╠╦╝  ╚═╗  ╠═╣
+╩ ╩  ╩ ╩  ╩╚═  ╚═╝  ╩ ╩
 "
 
 # In termux-setup folder
@@ -105,5 +105,25 @@ if [ -f "zshrc" ]; then
     # In usr/etc folder
     nano zshrc
     cd
-    # In home folder
 fi
+
+cd
+# In home folder
+
+# Command Prompt
+
+cd termux-setup
+#In termux-setup folder
+
+if [ -f "prompt" ]; then
+    echo "Your Prompt is Already Satisfied !
+else
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+    echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+    curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/prompt
+    cd
+    echo "Please Restart Termux to get the Prompt !"
+fi
+
+cd
+# In home folder
