@@ -124,6 +124,3 @@ else
     cd
     echo "Please Restart Termux to get the Prompt !"
 fi
-
-cd
-# In home folder
