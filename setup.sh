@@ -99,5 +99,12 @@ cd termux-setup
 if [ -f "zshrc" ]; then
     pkg install python3
     pip install lolcat
-    mv -f zshrc /data/data/com.termux/files/usr/etc
+    rm zshrc
+    cd ..
+    cd ..
+    # In data/files folder
+    cd usr/etc
+    # In usr/etc folder
+    nano zshrc
+    cd
 fi
