@@ -103,7 +103,14 @@ if [ -f "zshrc" ]; then
     # In data/files folder
     cd usr/etc
     # In usr/etc folder
-    nano zshrc
+    echo 'w="\033[0;37m"
+echo "${w}
+╔═╗  ╔╦╗  ╦═╗  ╔═╗  ╔╗╔  ╔═╗  ╔═╗
+╚═╗   ║   ╠╦╝  ╠═╣  ║║║  ║ ╦  ║╣
+╚═╝   ╩   ╩╚═  ╩ ╩  ╝╚╝  ╚═╝  ╚═╝"
+echo "Start Coding with Yourself !"
+echo "____________________________"
+echo " "'>>zshrc
     cd
 fi
 
