@@ -97,15 +97,18 @@ cd termux-setup
 # In termux-setup folder
 
 if [ -f "zshrc" ]; then
-    pkg install python3
-    pip install lolcat
     rm zshrc
     cd ..
     cd ..
     # In data/files folder
     cd usr/etc
     # In usr/etc folder
-    nano zshrc
+    echo "╔═╗  ╔╦╗  ╦═╗  ╔═╗  ╔╗╔  ╔═╗  ╔═╗
+          ╚═╗   ║   ╠╦╝  ╠═╣  ║║║  ║ ╦  ║╣ 
+          ╚═╝   ╩   ╩╚═  ╩ ╩  ╝╚╝  ╚═╝  ╚═╝" >> zshrc
+    echo "Start Coding with Yourself !" >> zshrc
+    echo "____________________________" >> zshrc
+    echo " " >> zshrc
     cd
     # In home folder
 fi
