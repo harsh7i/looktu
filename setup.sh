@@ -103,7 +103,9 @@ if [ -f "zshrc" ]; then
     # In data/files folder
     cd usr/etc
     # In usr/etc folder
-    echo 'echo "╔═╗  ╔╦╗  ╦═╗  ╔═╗  ╔╗╔  ╔═╗  ╔═╗/n╚═╗   ║   ╠╦╝  ╠═╣  ║║║  ║ ╦  ║╣/n╚═╝   ╩   ╩╚═  ╩ ╩  ╝╚╝  ╚═╝  ╚═╝
+    echo 'echo "╔═╗  ╔╦╗  ╦═╗  ╔═╗  ╔╗╔  ╔═╗  ╔═╗
+╚═╗   ║   ╠╦╝  ╠═╣  ║║║  ║ ╦  ║╣
+╚═╝   ╩   ╩╚═  ╩ ╩  ╝╚╝  ╚═╝  ╚═╝
 "' >> zshrc
     echo 'echo "Start Coding with Yourself !"' >> zshrc
     echo 'echo "____________________________"' >> zshrc
