@@ -107,4 +107,5 @@ if [ -f "zshrc" ]; then
     # In usr/etc folder
     nano zshrc
     cd
+    # In home folder
 fi
