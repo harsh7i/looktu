@@ -5,7 +5,7 @@ echo "
 ╩ ╩  ╩ ╩  ╩╚═  ╚═╝  ╩ ╩
 "
 
-# In lookto folder
+# In termux-setup folder
 
 cd ..
 # In home folder
@@ -20,9 +20,9 @@ else
     termux-setup-storage
 fi
 
-cd lookto
+cd termux-setup
 
-# In lookto folder
+# In termux-setup folder
 
 # Changing Termux Repository
 
@@ -51,9 +51,9 @@ else
     echo "Successfully Instilled !"
 fi
 
-cd lookto
+cd termux-setup
 
-# In lookto folder
+# In termux-setup folder
 
 THEMEIN='theme'
 if [ -f "$THEMEIN" ]; then
@@ -63,7 +63,7 @@ else
     cd ..
     # In home folder
     bash termux-ohmyzsh/install.sh
-    cd lookto
+    cd termux-setup
     curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/theme
     echo " Successfully Theme Installed !"
 fi
@@ -92,9 +92,9 @@ cd
 
 # In home folder
 
-cd lookto
+cd termux-setup
 
-# In lookto folder
+# In termux-setup folder
 
 if [ -f "zshrc" ]; then
     rm zshrc
@@ -119,8 +119,8 @@ cd
 
 # Command Prompt
 
-cd lookto
-#In lookto folder
+cd termux-setup
+#In termux-setup folder
 
 if [ -f "prompt" ]; then
     echo "Your Prompt is Already Satisfied !"
