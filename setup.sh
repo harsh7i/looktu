@@ -31,10 +31,10 @@ if [ -f "$REPO" ]; then
     echo "Repository Already Changed !"
 else
     echo "Change Your Termux Repository !"
-    apt update -y
-    apt upgrade -y
-    pkg update -y
-    pkg install curl -y
+    apt -y update
+    apt -y upgrade
+    pkg -y update
+    pkg install -y curl
     curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/repo
 fi
 
