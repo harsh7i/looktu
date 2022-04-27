@@ -1,4 +1,4 @@
 # termux-setup
-AN EASY TOOL ALL OVER THE WORLD TO SETUP TERMUX
+An Easy Tool all over the world to setup Termux.
 
 This is a Single tap code which change your Terminal look entirely !
