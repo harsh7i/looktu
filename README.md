@@ -1,4 +1,6 @@
-# termux-setup
+# Termux Setup Tool
+This is a advanced tool
+which automatically
 
 git clone https://github.com/harsh7839/termux-setup.git
 
