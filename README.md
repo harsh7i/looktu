@@ -4,17 +4,15 @@ which automatically setup your Termux
 with a Single command.
 
 # Setting Up!
-1.First Clone this Repository.
-```shell
-git clone https://github.com/harsh7839/termux-setup.git
-```
-cd termux-setup
-
-chmod +x setup.sh
-
-sh setup.sh
+1.First Clone this Repository using this Command.
+```shell git clone https://github.com/harsh7839/termux-setup.git```
+2.Go to the Repository Folder.
+```shell cd termux-setup```
+3.Make The File Executable.
+```shell chmod +x setup.sh```
+4.Execute The Bash File.
+```shell sh setup.sh```
 
 
 An Easy Tool all over the world to setup Termux.
-
 This is a Single tap code which change your Terminal look entirely !
