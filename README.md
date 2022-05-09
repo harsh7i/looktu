@@ -24,6 +24,10 @@ chmod +x setup.sh
 sh setup.sh
 ```
 
+# Note:-
+If it Stuck Somewhere press *enter
+Key Only
+
 
 An Easy Tool all over the world to setup Termux.
 This is a Single tap code which change your Terminal look entirely !
