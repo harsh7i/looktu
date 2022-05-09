@@ -1,9 +1,13 @@
 # Termux Setup Tool
 This is a advanced tool
-which automatically
+which automatically setup your Termux
+with a Single command.
 
+# Setting Up!
+1.First Clone this Repository.
+```shell
 git clone https://github.com/harsh7839/termux-setup.git
-
+```
 cd termux-setup
 
 chmod +x setup.sh
