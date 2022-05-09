@@ -5,7 +5,7 @@ with a Single command.
 
 # Setting Up!
 1.First Clone this Repository using this Command.
-*```shell
+```shell
 git clone https://github.com/harsh7839/termux-setup.git
 ```
 
