@@ -28,17 +28,16 @@ cd termux-setup
 
 REPO='repo'
 if [ -f "$REPO" ]; then
-    echo "Repository Already Changed !"
+    echo "Dependencies Already Installed !"
 else
-    echo "Change Your Termux Repository !"
-    apt -y update
-    apt -y upgrade
-    pkg -y update
-    pkg install -y curl
+    echo "Installing Dependencies !"
+    apt-get -y update
+    apt-get -y upgrade
+    apt install -y curl zsh git
     curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/repo
 fi
 
-cd ..
+cd
 
 # In home folder
 
@@ -47,8 +46,8 @@ if [ -d "$THEMEDL" ]; then
     echo "Theme Already Downloaded, It's Time to Install !"
 else
     echo "Downloading Termux Theme !"
-    git clone https://github.com/Cabbagec/termux-ohmyzsh.git
-    echo "Successfully Instilled !"
+    git clone https://github.com/harsh7839/termux-ohmyzsh.git
+    echo "Successfully Installed !"
 fi
 
 cd termux-setup
