@@ -17,7 +17,7 @@ chmod +x setup.sh
 sh setup.sh
 ```
 
-# Note:-
+### Note:-
 If it Stuck Somewhere press *enter*
 Key Only
 
