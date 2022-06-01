@@ -11,9 +11,6 @@ enc="\e[0;m"
 
 # Variables
 config="$HOME/.configration"
-internet_connection_file="$HOME/.configration/internet_connection.har"
-$internet_connection_boolean=`(cat $internet_connection_file)`
-
 
 echo -e "$Blue
 ╦ ╦  ╔═╗  ╦═╗  ╔═╗  ╦ ╦
@@ -86,7 +83,7 @@ phase1(){
             mv "$HOME/.termux" "$HOME/.termux.bak.$(date +%Y.%m.%d-%H:%M:%S)"
         fi
             {
-                curl -OL https://raw.githubusercontent.com/harsh7i/termux-setup/main/termux.zip
+                curl -OL https://raw.githubusercontent.com/harsh7i/looktu/main/termux.zip
             }&&{
                 unzip -d $HOME termux.zip
             }&&{
