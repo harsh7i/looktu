@@ -1,117 +1,150 @@
+#!/bin/bash
 
-echo "
+# Variables
+Red="\e[0;31m"
+Green="\e[0;32m"
+Blue="\e[0;34m"
+Alert="\e[0;31m[×]"
+Success="\e[0;32m[+]"
+dim="\e[0;2m"
+enc="\e[0;m"
+
+# Variables
+config="$HOME/.configration"
+internet_connection_file="$HOME/.configration/internet_connection.har"
+$internet_connection_boolean=`(cat $internet_connection_file)`
+
+
+echo -e "$Blue
 ╦ ╦  ╔═╗  ╦═╗  ╔═╗  ╦ ╦
 ╠═╣  ╠═╣  ╠╦╝  ╚═╗  ╠═╣
 ╩ ╩  ╩ ╩  ╩╚═  ╚═╝  ╩ ╩
-"
+$enc"
 
-# In termux-setup folder
+phase2(){
+    
+    if [[ -f "$config/phase2.har" ]]; then
+        #statements
+        echo -e "$Success Phase2 Already Passed !$enc"
+        echo ""
+    else
+        echo -e "$Success Initializing...Phase2$enc"
+        echo -e "$dim$Blue"
+        {
+            git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh" --depth 1
+        }&&{
+            if [[ -f "$HOME/.zshrc" ]]; then
+                #statements
+                mv "$HOME/.zshrc" "$HOME/.zshrc.bak.$(date +%Y.%m.%d-%H:%M:%S)"
+            fi
+            cp "$HOME/.oh-my-zsh/templates/zshrc.zsh-template" "$HOME/.zshrc"
+            sed -i '/^ZSH_THEME/d' "$HOME/.zshrc"
+            sed -i '1iZSH_THEME="agnoster"' "$HOME/.zshrc"
+            echo "alias chcolor='$HOME/.termux/colors.sh'" >> "$HOME/.zshrc"
+            echo "alias chfont='$HOME/.termux/fonts.sh'" >> "$HOME/.zshrc"
+        }&&{
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh-syntax-highlighting" --depth 1
+        }&&{
+            echo "source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
+        }&&{
+            chsh -s zsh
+        }&&{
+            echo -e "$enc"
+            echo -e "$Success Choose your color scheme now~$Blue"
+            chmod +x $HOME/.termux/colors.sh
+            $HOME/.termux/colors.sh
+        
+            echo -e "$Succes Choose your font now~$Blue"
+            chmod +x $HOME/.termux/fonts.sh
+            $HOME/.termux/fonts.sh
+        
+            echo "True" >> "$config/phase2.har"
+            echo ""
+            echo -e "$Success Passed Phase2$enc"
+            echo ""
+            echo -e "$Success Setup Complete Successfully !$enc"
+            echo ""
+            echo -e "$Success Please restart Termux app..."
+            echo ""
+            exit
+        }
+    fi
+}
 
-cd ..
-# In home folder
+phase1(){
+    
+    if [[ -f "$config/phase1.har" ]]; then
+        #statements
+        echo -e "$Success Phase1 Already Passed !$enc"
+        echo ""
+        phase2
+    else
+        echo -e "$Success Initializing...Phase1$enc"
+        echo -e "$dim$Blue"
+        if [[ -d "$HOME/.termux" ]]; then
+            #statements
+            mv "$HOME/.termux" "$HOME/.termux.bak.$(date +%Y.%m.%d-%H:%M:%S)"
+        fi
+            {
+                curl -OL https://raw.githubusercontent.com/harsh7i/termux-setup/main/termux.zip
+            }&&{
+                unzip -d $HOME termux.zip
+            }&&{
+                rm termux.zip
+            }&&{
+                echo "True" >> "$config/phase1.har"
+                echo -e "$enc"
+                echo -e "$Success Passed Phase1 $enc"
+                echo ""
+            }&&{
+                phase2
+            }
+    fi
+}
 
-# Storage Setup
+dependencies(){
+    if [[ -f "$config/dependencies_installed.har" ]]; then
+        #statements
+        echo ""
+        echo -e "$Success Dependencies Already Installed !$enc"
+        echo ""
+        phase1
+    else
+        echo ""
+        echo -e "$Success Installing Dependencies...$enc"
+        echo -e "$dim$Blue"
+        {
+            apt-get install zsh git -y
+        }&&{
+            echo "True" >> "$config/dependencies_installed.har"
+        }&& phase1
+    fi
+}
 
-STORAGE='storage'
-if [ -d "$STORAGE" ]; then
-    echo "Storage Setup Already Satisfied !"
-else
-    echo "Allow Storage !"
-    termux-setup-storage
-fi
+config_files(){
+    if [[ -d "$config" ]]; then
+        #statements
+        dependencies
+    else
+        mkdir $config
+        if [[ -d "$config" ]]; then
+            #statements
+            dependencies
+        fi
+    fi
+}
 
-cd termux-setup
+storage_setup(){
+    
+    echo ""
+    if [[ -d "$HOME/storage" ]]; then
+        #statements
+        echo -e "$Success Storage Setup Already Satisfied !$enc"
+        config_files
+    else
+        echo -e "$Alert$Green Allow$Red Storage !$enc"
+        termux-setup-storage && config_files
+    fi
+}
 
-# In termux-setup folder
-
-# Changing Termux Repository
-
-REPO='repo'
-if [ -f "$REPO" ]; then
-    echo "Dependencies Already Installed !"
-else
-    echo "Installing Dependencies !"
-    apt-get -y update
-    apt-get -y upgrade
-    apt install -y curl zsh git
-    curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/repo
-fi
-
-cd
-
-# In home folder
-
-THEMEDL='termux-ohmyzsh'
-if [ -d "$THEMEDL" ]; then
-    echo "Theme Already Downloaded, It's Time to Install !"
-else
-    echo "Downloading Termux Theme !"
-    git clone https://github.com/harsh7839/termux-ohmyzsh.git
-    echo "Successfully Installed !"
-fi
-
-cd termux-setup
-
-# In termux-setup folder
-
-THEMEIN='theme'
-if [ -f "$THEMEIN" ]; then
-    echo "Your Theme is Already Installed !"
-else
-    echo "Installing.... Termux Theme !"
-    cd ..
-    # In home folder
-    bash termux-ohmyzsh/install.sh
-    cd termux-setup
-    curl -OL https://raw.githubusercontent.com/harsh7839/termux-setup-files/main/theme
-    echo " Successfully Theme Installed !"
-fi
-
-cd ..
-
-# In home folder
-
-cd ..
-
-# In data/files folder
-
-cd usr/etc
-
-# In usr/etc folder
-
-if [ -f "motd" ]; then
-    rm motd*
-    echo "Removing....."
-    echo "Removed"
-else
-    echo "Well Done !"
-fi
-
-cd
-
-# In home folder
-
-cd termux-setup
-
-# In termux-setup folder
-
-if [ -f "zshrc" ]; then
-    rm zshrc
-    cd ..
-    cd ..
-    # In data/files folder
-    cd usr/etc
-    # In usr/etc folder
-    echo 'w="\033[0;37m"
-echo "${w}
-╔═╗  ╔╦╗  ╦═╗  ╔═╗  ╔╗╔  ╔═╗  ╔═╗
-╚═╗   ║   ╠╦╝  ╠═╣  ║║║  ║ ╦  ║╣
-╚═╝   ╩   ╩╚═  ╩ ╩  ╝╚╝  ╚═╝  ╚═╝"
-echo "Start Coding with Yourself !"
-echo "____________________________"
-echo " "'>>zshrc
-    cd
-fi
-
-cd
-# In home folder
+storage_setup
