@@ -3,15 +3,8 @@ which automatically setup your Termux
 with a Single command.
 
 ### Commands
-
 ```shell
-git clone https://github.com/harsh7839/termux-setup.git
-```
-```shell
-cd termux-setup
-```
-```shell
-chmod +x setup.sh
+apt-get -y update && apt-get -y upgrade && apt install curl -y && curl -OL https://raw.githubusercontent.com/harsh7i/termux-setup-files/main/setup.sh && chmod +x *
 ```
 ```shell
 sh setup.sh
