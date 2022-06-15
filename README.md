@@ -4,7 +4,7 @@ with a Single command.
 
 ### Commands
 ```shell
-echo -e "\e[1;30m" && apt-get -y update &> /dev/null && apt-get -y upgrade && apt install curl -y && curl -OL https://raw.githubusercontent.com/harsh7i/looktu/main/setup.sh && chmod +x * && ls
+echo -e "\e[1;30m" && apt-get -y update && apt-get -y upgrade && apt install curl -y && curl -OL https://raw.githubusercontent.com/harsh7i/looktu/main/setup.sh && chmod +x * && ls
 ```
 ```shell
 sh setup.sh
