@@ -63,6 +63,8 @@ phase2(){
             echo ""
             echo -e "$Success Please restart Termux app..."
             echo ""
+            cd
+            rm -rf ../usr/etc/motd* &> /dev/null
             exit
         }
     fi
